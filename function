@@ -1,0 +1,16 @@
+// Filter out keys with empty or undefined values
+
+    const formattedValues = {
+      title: values?.title,
+      description: values?.description,
+      estimation: values?.estimation,
+      featureId: values?.featureId,
+      projectId: values?.projectId,
+      label: values?.label,
+      layer: values?.layer,
+      dueDate:values?.dueDate ? moment(values?.dueDate).format("yyyy-MM-DD") : '',
+    };
+
+    const filteredValues: any = Object.fromEntries(
+      Object.entries(formattedValues).filter(([_, value]) => value !== undefined && value !== "" && value.length !== 0)
+    )
